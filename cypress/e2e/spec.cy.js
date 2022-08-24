@@ -79,7 +79,7 @@ describe ("Juice shop",() =>{
       SearchPage.openStrawberry.click();
       SearchPage.itemDetails.should("contain", "Sweet & tasty!")
      })
-     it.only("Test search Raspberry scenario", () => {
+     it("Add a review", () => {
       HomePage.searchButton.click();
       HomePage.searchField.type("Raspberry{enter}");
       SearchPage.openRaspberry.click();
@@ -87,6 +87,15 @@ describe ("Juice shop",() =>{
       SearchPage.submitButton.click({force: true});
       SearchPage.reviewsButton.click();
       SearchPage.reviewsButton.should("contain", "Tastes like metal")
+     })
+     it.only("Validate product card amount", () => {
+      HomePage.cards.should("have.length", 12)
+      HomePage.itemsPerPage.click();
+      // HomePage.changeItemsPerPage.contains("24").click();
+      // HomePage.cards.should("have.length", 24);
+      // HomePage.itemsPerPage.click();
+      HomePage.changeItemsPerPage.contains("36").click();
+      HomePage.cards.should("have.length", 36);
      })
   })
 })

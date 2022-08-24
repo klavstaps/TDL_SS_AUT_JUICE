@@ -31,6 +31,23 @@ class HomePage extends Base {
     return cy.get("#mat-input-0")
   }
 
+  static get cards() {
+    return cy.get(".img-container")
+  }
+
+  static get itemsPerPage() {
+    return cy.get("[aria-label='Items per page:']")
+  }
+
+  static get changeItemsPerPage() {
+    return cy.get("span.mat-option-text")
+  }
+  
+  // static get changeItemsPerPage() {
+  //   return cy.get("#mat-option-4")
+  // }
+
+
 
 }
 

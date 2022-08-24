@@ -43,8 +43,6 @@ class SearchPage extends Base {
     //     return cy.get(".mat-expansion-panel-content.ng-tns-c149-60.ng-trigger.ng-trigger-bodyExpansion")
     // }
 
-    
-
 }
 
 
