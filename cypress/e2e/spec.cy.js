@@ -67,7 +67,7 @@ describe ("Juice shop",() =>{
       SearchPage.openLemon.click();
       SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
      })
-     it.only("Test search 500ml scenario", () => {
+     it("Test search 500ml scenario", () => {
       HomePage.searchButton.click();
       HomePage.searchField.type("500ml{enter}");
       SearchPage.openEggfruit.click();
@@ -78,6 +78,15 @@ describe ("Juice shop",() =>{
       SearchPage.closeButton.click();
       SearchPage.openStrawberry.click();
       SearchPage.itemDetails.should("contain", "Sweet & tasty!")
+     })
+     it.only("Test search Raspberry scenario", () => {
+      HomePage.searchButton.click();
+      HomePage.searchField.type("Raspberry{enter}");
+      SearchPage.openRaspberry.click();
+      SearchPage.reviewField.type("Tastes like metal");
+      SearchPage.submitButton.click({force: true});
+      SearchPage.reviewsButton.click();
+      SearchPage.reviewsButton.should("contain", "Tastes like metal")
      })
   })
 })
