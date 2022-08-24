@@ -23,6 +23,14 @@ class HomePage extends Base {
     return cy.get("[aria-label='Go to user profile']")
   }
 
+  static get searchButton() {
+    return cy.get("#searchQuery")
+  }
+
+  static get searchField() {
+    return cy.get("#mat-input-0")
+  }
+
 
 }
 

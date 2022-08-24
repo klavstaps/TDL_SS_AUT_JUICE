@@ -1,16 +1,18 @@
 import HomePage from "../pageObjects/homePage"
 import LoginPage from "../pageObjects/loginPage";
 import RegistrationPage from "../pageObjects/registrationPage";
+import SearchPage from "../pageObjects/searchPage";
+
 
 
 describe ("Juice shop",() =>{
-    context("Login Page", () => {
-      beforeEach( () => {
-        HomePage.visit();
-        HomePage.welcomeButton.click();
-        HomePage.cookieButton.click();
-     });
-     it("Test login scenario", () =>{
+  context("Login Page", () => {
+    beforeEach( () => {
+      HomePage.visit();
+      HomePage.welcomeButton.click();
+      HomePage.cookieButton.click();
+   });
+    it("Test login scenario", () =>{
       HomePage.accButton.click();
       HomePage.loginButton.click();
       LoginPage.emailField.type("demo");
@@ -19,7 +21,7 @@ describe ("Juice shop",() =>{
       HomePage.accButton.click();
       HomePage.userID.should("contain", "demo")
      });
-     it.only("Test registration scenario", () =>{
+     it("Test registration scenario", () =>{
       HomePage.accButton.click();
       HomePage.loginButton.click();
       LoginPage.newCustomer.click();
@@ -39,6 +41,25 @@ describe ("Juice shop",() =>{
       LoginPage.pswrField.type(password);
       LoginPage.loginButton.click();
       HomePage.userID.should("contain", email)
+     })
+     
+  })
+  context("Search Page", () => {
+    beforeEach( () =>{
+      HomePage.visit();
+      HomePage.welcomeButton.click();
+      HomePage.cookieButton.click();
+      HomePage.accButton.click();
+      HomePage.loginButton.click();
+      LoginPage.emailField.type("demo");
+      LoginPage.pswrField.type("demo");
+      LoginPage.loginButton.click();
+    })
+    it.only("Test search scenario", () => {
+      HomePage.searchButton.click();
+      HomePage.searchField.type("Lemon{enter}");
+      SearchPage.openItemButton.click();
+      SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
      })
   })
 })
