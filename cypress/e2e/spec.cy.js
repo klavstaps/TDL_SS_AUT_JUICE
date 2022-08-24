@@ -55,17 +55,29 @@ describe ("Juice shop",() =>{
       LoginPage.pswrField.type("demo");
       LoginPage.loginButton.click();
     })
-    it("Test search scenario", () => {
+    it("Test search Lemon scenario", () => {
       HomePage.searchButton.click();
       HomePage.searchField.type("Lemon{enter}");
-      SearchPage.openItemButton.click();
+      SearchPage.openLemon.click();
       SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
      })
-     it.only("Test search scenario", () => {
+     it("Test search 500ml -> Lemon scenario", () => {
       HomePage.searchButton.click();
       HomePage.searchField.type("500ml{enter}");
-      SearchPage.openItemButton.click();
+      SearchPage.openLemon.click();
       SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
+     })
+     it.only("Test search 500ml scenario", () => {
+      HomePage.searchButton.click();
+      HomePage.searchField.type("500ml{enter}");
+      SearchPage.openEggfruit.click();
+      SearchPage.itemDetails.should("contain", "Now with even more exotic flavour.");
+      SearchPage.closeButton.click();
+      SearchPage.openLemon.click();
+      SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
+      SearchPage.closeButton.click();
+      SearchPage.openStrawberry.click();
+      SearchPage.itemDetails.should("contain", "Sweet & tasty!")
      })
   })
 })
