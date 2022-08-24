@@ -4,7 +4,7 @@ class SearchPage extends Base {
     static url="http://localhost:3000/#/search?q=Lemon";
 
     static get openItemButton() {
-        return cy.get("[aria-label='Click for more information about the product']")
+        return cy.get("img[alt='Lemon Juice (500ml)']")
     }
 
     static get itemDetails() {

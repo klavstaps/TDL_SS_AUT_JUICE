@@ -55,9 +55,15 @@ describe ("Juice shop",() =>{
       LoginPage.pswrField.type("demo");
       LoginPage.loginButton.click();
     })
-    it.only("Test search scenario", () => {
+    it("Test search scenario", () => {
       HomePage.searchButton.click();
       HomePage.searchField.type("Lemon{enter}");
+      SearchPage.openItemButton.click();
+      SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
+     })
+     it.only("Test search scenario", () => {
+      HomePage.searchButton.click();
+      HomePage.searchField.type("500ml{enter}");
       SearchPage.openItemButton.click();
       SearchPage.itemDetails.should("contain", "Sour but full of vitamins.")
      })
